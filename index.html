@@ -14,8 +14,13 @@
   var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
   var isAndroid = /Android/i.test(ua);
 
-  if (isIOS) location.replace(IOS_URL);
-  else if (isAndroid) location.replace(ANDROID_URL);
+  // ?noredirect shows this page on any device instead of redirecting.
+  var noRedirect = new URLSearchParams(location.search).has("noredirect");
+
+  if (!noRedirect) {
+    if (isIOS) location.replace(IOS_URL);
+    else if (isAndroid) location.replace(ANDROID_URL);
+  }
 
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("ios").href = IOS_URL;
