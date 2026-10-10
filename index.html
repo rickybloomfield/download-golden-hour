@@ -30,7 +30,10 @@
     else if (isAndroid) location.replace(ANDROID_URL);
   }
 
-  if (isIOS || isAndroid) document.documentElement.className = "mobile";
+  // Phones hide the QR code (scanning it would only reopen this page);
+  // tablets keep it so they can show it to someone else.
+  var isPhone = /iPhone|iPod/i.test(ua) || (isAndroid && /Mobile/i.test(ua));
+  if (isPhone) document.documentElement.className = "phone";
 
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("ios").href = IOS_URL;
@@ -127,7 +130,7 @@
     .btn.secondary { background: transparent; color: var(--ink); }
   }
   /* A phone viewing with ?noredirect has no use for a QR code to itself. */
-  .mobile .scan, .mobile .divider { display: none; }
+  .phone .scan, .phone .divider { display: none; }
 </style>
 </head>
 <body>
