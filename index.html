@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Golden Hour</title>
+<script>
+  // Public invite links: TestFlight External group, Firebase "testers" group.
+  var IOS_URL = "https://testflight.apple.com/join/7NdwDcuv";
+  var ANDROID_URL = "https://appdistribution.firebase.dev/i/20d06feae35edac9";
+
+  var ua = navigator.userAgent || "";
+  // iPadOS 13+ reports itself as a Mac, so a touch-capable "Macintosh" is an iPad.
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/i.test(ua);
+
+  if (isIOS) location.replace(IOS_URL);
+  else if (isAndroid) location.replace(ANDROID_URL);
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("ios").href = IOS_URL;
+    document.getElementById("android").href = ANDROID_URL;
+  });
+</script>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 17px/1.5 -apple-system, system-ui, sans-serif; max-width: 420px; margin: 15vh auto; padding: 0 16px; text-align: center; }
+  a { display: block; margin: 12px 0; padding: 14px; border-radius: 12px; background: #1f6feb; color: #fff; text-decoration: none; font-weight: 600; }
+  p { opacity: .7; }
+</style>
+</head>
+<body>
+  <h1>Golden Hour</h1>
+  <p>Open this link on your phone, or pick your platform:</p>
+  <a id="ios" href="#">iPhone / iPad (TestFlight)</a>
+  <a id="android" href="#">Android</a>
+</body>
+</html>
