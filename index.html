@@ -74,12 +74,11 @@
   /* Narrow: one column, QR between the title and the buttons. */
   main {
     width: 100%; max-width: 380px; text-align: center;
-    display: grid; grid-template-areas: "head" "scan" "actions" "foot";
+    display: grid; grid-template-areas: "head" "scan" "actions";
   }
   .head { grid-area: head; }
   .scan { grid-area: scan; margin-bottom: 24px; }
   .actions { grid-area: actions; }
-  footer { grid-area: foot; margin-top: 20px; font-size: 12px; color: var(--ink-mute); }
   .icon {
     width: 104px; height: 104px; border-radius: 23px; display: block; margin: 0 auto 20px;
     box-shadow: 0 1px 2px rgba(21, 35, 58, .12), 0 10px 28px rgba(200, 134, 42, .28);
@@ -88,29 +87,25 @@
   .lede { margin: 0 0 28px; color: var(--ink-mute); text-wrap: balance; }
   .card {
     background: var(--surface); border: 1px solid var(--rule); border-radius: 20px;
-    padding: 24px 20px 20px; box-shadow: 0 1px 2px rgba(21, 35, 58, .04), 0 8px 24px rgba(21, 35, 58, .06);
+    padding: 20px; box-shadow: 0 1px 2px rgba(21, 35, 58, .04), 0 8px 24px rgba(21, 35, 58, .06);
   }
-  .qr { width: 196px; height: 196px; margin: 0 auto 12px; padding: 10px; background: #fff; border-radius: 14px; border: 1px solid var(--rule); }
+  .qr { width: 220px; height: 220px; margin: 0 auto; padding: 10px; background: #fff; border-radius: 14px; border: 1px solid var(--rule); }
   .qr svg { display: block; width: 100%; height: 100%; }
-  .hint { margin: 0; font-size: 13px; color: var(--ink-mute); }
   .divider { display: flex; align-items: center; gap: 12px; margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-mute); }
   .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 
   /* Wide: logo and buttons on the left, a larger QR code on the right. */
   @media (min-width: 760px) {
     main {
-      max-width: 820px; text-align: left; column-gap: 56px; align-items: center;
-      grid-template-columns: 1fr auto;
-      grid-template-areas: "head scan" "actions scan" "foot scan";
+      max-width: 880px; column-gap: 56px; align-items: center;
+      grid-template-columns: 340px auto;
+      grid-template-areas: "head scan" "actions scan";
     }
     .head { align-self: end; }
-    .actions { align-self: start; max-width: 360px; }
-    footer { align-self: start; }
-    .icon { margin: 0 0 20px; }
+    .actions { align-self: start; }
     h1 { font-size: 40px; }
-    .scan { margin: 0; padding: 28px 28px 22px; text-align: center; }
-    .qr { width: 320px; height: 320px; padding: 14px; margin-bottom: 16px; }
-    .hint { font-size: 14px; }
+    .scan { margin: 0; padding: 24px; }
+    .qr { width: 440px; height: 440px; padding: 16px; }
     .divider { display: none; }
     .actions .btn:first-of-type { margin-top: 0; }
   }
@@ -145,7 +140,6 @@
 
   <section class="scan card">
     <div class="qr" role="img" aria-label="QR code for this page"><svg viewBox="0 0 37 37" xmlns="http://www.w3.org/2000/svg" class="segno" aria-hidden="true"><g><path fill="#fff" d="M0 0h37v37h-37z"/><path class="qrline" stroke="#000" d="M2 2.5h7m2 0h1m1 0h1m1 0h1m2 0h1m1 0h3m2 0h1m2 0h7m-33 1h1m5 0h1m3 0h1m1 0h5m3 0h1m1 0h1m3 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m1 0h2m3 0h3m1 0h1m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m2 0h2m1 0h4m2 0h1m1 0h3m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m2 0h2m2 0h1m1 0h1m1 0h3m1 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h3m1 0h2m1 0h2m3 0h1m5 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h2m5 0h1m2 0h4m1 0h1m-24 1h1m1 0h5m3 0h2m1 0h1m1 0h3m1 0h1m2 0h1m3 0h5m-30 1h1m1 0h1m1 0h1m2 0h2m1 0h1m4 0h1m1 0h3m2 0h1m2 0h2m1 0h2m1 0h1m-33 1h1m1 0h1m3 0h1m4 0h2m2 0h1m1 0h2m1 0h3m2 0h2m1 0h1m1 0h1m-31 1h2m3 0h1m4 0h1m3 0h2m2 0h1m2 0h1m1 0h2m3 0h5m-33 1h2m3 0h2m2 0h1m1 0h1m5 0h3m2 0h4m1 0h3m1 0h2m-32 1h1m1 0h2m3 0h1m1 0h2m2 0h3m1 0h3m2 0h1m2 0h1m2 0h1m1 0h2m-33 1h3m2 0h2m2 0h1m1 0h2m8 0h2m2 0h5m1 0h1m-32 1h2m1 0h2m5 0h1m1 0h3m1 0h1m1 0h1m2 0h1m3 0h2m1 0h3m-31 1h1m3 0h1m1 0h5m2 0h1m3 0h3m2 0h4m1 0h2m3 0h1m-33 1h1m1 0h2m1 0h1m3 0h1m2 0h2m2 0h6m1 0h1m1 0h3m1 0h2m1 0h1m-31 1h7m6 0h1m1 0h1m3 0h2m2 0h4m1 0h2m-32 1h2m7 0h2m2 0h4m2 0h3m1 0h9m-31 1h1m3 0h2m3 0h1m1 0h2m1 0h2m1 0h1m3 0h1m1 0h2m1 0h3m2 0h1m-33 1h3m1 0h1m2 0h1m1 0h1m3 0h1m1 0h1m1 0h4m2 0h2m1 0h1m2 0h2m1 0h1m-33 1h1m5 0h2m3 0h7m2 0h1m1 0h1m1 0h1m3 0h1m1 0h2m-32 1h1m3 0h1m2 0h1m3 0h2m1 0h2m2 0h1m1 0h3m3 0h1m2 0h4m-33 1h1m1 0h1m3 0h6m3 0h3m1 0h1m2 0h1m1 0h5m2 0h1m-24 1h4m1 0h1m2 0h1m1 0h4m2 0h1m3 0h1m1 0h1m1 0h1m-33 1h7m2 0h1m1 0h1m1 0h4m1 0h1m1 0h5m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m1 0h1m5 0h2m2 0h1m1 0h5m3 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m3 0h2m2 0h1m1 0h6m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h2m2 0h1m1 0h3m1 0h2m3 0h3m2 0h2m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h2m1 0h1m5 0h1m4 0h1m3 0h2m1 0h1m-30 1h1m5 0h1m2 0h2m3 0h1m1 0h1m2 0h4m5 0h3m-31 1h7m1 0h2m1 0h1m1 0h2m2 0h1m1 0h1m2 0h4m1 0h1m1 0h1m1 0h1"/></g></svg></div>
-    <p class="hint">Scan with your phone's camera to get the right download.</p>
   </section>
 
   <nav class="actions">
@@ -164,7 +158,6 @@
       </a>
   </nav>
 
-  <footer>iPhone and iPad install through TestFlight.</footer>
 </main>
 </body>
 </html>
